@@ -1,23 +1,33 @@
 import React from 'react';
-import {Button} from "@mui/material"
+import {Button, TextField} from "@mui/material"
 
 const FormularioCadastro = () => {
     return (
         <form>
-            <label>Nome</label>
-            <input type='text'/>
+            <TextField
+            id='nome'
+            label='Nome'
+            fullWidth/>
 
-            <label>Sobrenome</label>
-            <input type='text'/>
+            <TextField
+            id='sobrenome'
+            label='Sobrenome'
+            fullWidth/>
 
-            <label>CPF</label>
-            <input type='text'/>
+            <TextField
+            id='CPF'
+            label='CPF'
+            fullWidth/>
 
-            <label>Promoções</label>
-            <input type='checkbox'/>
+            <TextField
+            id='promocoes'
+            label='Promoções'
+            type='checkbox'/>   
 
-            <label>Termos de uso</label>
-            <input type='checkbox'/>
+            <TextField
+            id='termosDeUso'
+            label='Termos de uso'
+            type='checkbox'/>  
 
             <Button type='submit'variant='contained' color='primary'>Cadastrar</Button>
         </form>
