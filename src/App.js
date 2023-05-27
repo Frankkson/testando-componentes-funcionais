@@ -1,6 +1,7 @@
 import "./App.css";
 import FormularioCadastro from "./componentes/formularioDeCadastro";
-import { Container } from "@mui/material";
+import { Container, Typography } from "@mui/material";
+import "fontsource-roboto";
 
 function App() {
 	return (
@@ -8,7 +9,13 @@ function App() {
 			component="article"
 			maxWidth="sm"
 		>
-			<h1>This is a header inside a div</h1>
+			<Typography
+				align="center"
+				variant="h3"
+				component={"h1"}
+			>
+				This is a Typography inside a Container
+			</Typography>
 
 			<FormularioCadastro />
 		</Container>
