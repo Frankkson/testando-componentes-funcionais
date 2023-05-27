@@ -17,10 +17,12 @@ function App() {
 				This is a Typography inside a Container
 			</Typography>
 
-			<FormularioCadastro />
+			<FormularioCadastro onSubmit={onSubmitForm} />
 		</Container>
 	);
 }
-
+const onSubmitForm = (dados) => {
+	console.log(dados);
+};
 export default App;
 
