@@ -7,22 +7,32 @@ function App() {
 	return (
 		<Container
 			component="article"
-			maxWidth="sm"
-		>
+			maxWidth="sm">
 			<Typography
 				align="center"
 				variant="h3"
-				component={"h1"}
-			>
+				component={"h1"}>
 				This is a Typography inside a Container
 			</Typography>
 
-			<FormularioCadastro onSubmit={onSubmitForm} />
+			<FormularioCadastro
+				onSubmit={onSubmitForm}
+				validateCPF={validateCPF}
+			/>
 		</Container>
 	);
 }
 const onSubmitForm = (dados) => {
 	console.log(dados);
 };
+
+const validateCPF = (CPF) => {
+	if (CPF.length !== 11) {
+		return { valido: false, text: "CPF deve ter 11 dígitos" };
+	} else {
+		return { isValid: true, text: "" };
+	}
+};
+
 export default App;
 
