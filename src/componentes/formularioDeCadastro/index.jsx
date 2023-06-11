@@ -1,31 +1,25 @@
-import { Typography } from "@mui/material";
 import DadosEntrega from "./DadosEntrega";
 import DadosPessoais from "./DadosPessoais";
 import DadosUsuario from "./DadosUsuario";
 import { useState } from "react";
 
 const FormularioCadastro = ({ onSubmit, validateCPF }) => {
-	const [etapaAtual] = useState(1);
+	const [etapaAtual, setEtapa] = useState(0);
 
-	const formularioAtual = (etapa) => {
-		switch (etapa) {
-			default:
-				return <Typography>Erro ao selecionar formulário</Typography>;
-			case 0:
-				return <DadosUsuario />;
-			case 1:
-				return (
-					<DadosPessoais
-						onSubmit={onSubmit}
-						validateCPF={validateCPF}
-					/>
-				);
-			case 2:
-				return <DadosEntrega />;
-		}
+	const proximaEtapa = () => {
+		setEtapa(etapaAtual + 1);
 	};
 
-	return <>{formularioAtual(etapaAtual)}</>;
+	const formularios = [
+		<DadosUsuario aoEnviar={proximaEtapa} />,
+		<DadosPessoais
+			aoEnviar={proximaEtapa}
+			validateCPF={validateCPF}
+		/>,
+		<DadosEntrega aoSubmeter={onSubmit} />,
+	];
+
+	return <>{formularios[etapaAtual]}</>;
 };
 
 export default FormularioCadastro;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, TextField, Switch, FormControlLabel } from "@mui/material";
 
-const DadosPessoais = ({ onSubmit, validateCPF }) => {
+const DadosPessoais = ({ onSubmit: aoEnviar, validateCPF }) => {
 	const [nome, setNome] = useState("");
 	const [sobrenome, setSobrenome] = useState("");
 	const [CPF, setCPF] = useState("");
@@ -13,33 +13,36 @@ const DadosPessoais = ({ onSubmit, validateCPF }) => {
 		<form
 			onSubmit={(event) => {
 				event.preventDefault();
-				onSubmit({ nome, sobrenome, CPF, promocoes, termosDeUso });
+				aoEnviar();
 			}}
 		>
 			<TextField
+				fullWidth
 				id="nome"
 				label="Nome"
 				margin="normal"
-				value={nome}
 				onChange={(event) => {
 					setNome(event.target.value);
 				}}
-				fullWidth
+				required
+				value={nome}
 			/>
 
 			<TextField
+				fullWidth
 				id="sobrenome"
 				label="Sobrenome"
 				margin="normal"
-				value={sobrenome}
 				onChange={(event) => {
 					setSobrenome(event.target.value);
 				}}
-				fullWidth
+				required
+				value={sobrenome}
 			/>
 
 			<TextField
 				error={!error.CPF.isValid}
+				fullWidth
 				helperText={error.CPF.text}
 				id="CPF"
 				label="CPF"
@@ -51,8 +54,8 @@ const DadosPessoais = ({ onSubmit, validateCPF }) => {
 				onChange={(event) => {
 					setCPF(event.target.value);
 				}}
+				required
 				value={CPF}
-				fullWidth
 			/>
 
 			<FormControlLabel

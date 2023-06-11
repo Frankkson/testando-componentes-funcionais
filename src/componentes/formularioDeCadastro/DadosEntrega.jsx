@@ -1,13 +1,19 @@
 import React from "react";
 import { TextField, Button } from "@mui/material";
 
-const DadosEntrega = () => {
+const DadosEntrega = ({ aoSubmeter }) => {
 	return (
-		<form>
+		<form
+			onSubmit={(e) => {
+				e.preventDefault();
+				aoSubmeter();
+			}}
+		>
 			<TextField
 				id="CEP"
 				label="CEP"
 				margin="normal"
+				required
 				type="number"
 				variant="outlined"
 			></TextField>
@@ -16,6 +22,7 @@ const DadosEntrega = () => {
 				id="endereco"
 				label="Endereço"
 				margin="normal"
+				required
 				type="text"
 				variant="outlined"
 			></TextField>
@@ -23,6 +30,7 @@ const DadosEntrega = () => {
 				id="numero"
 				label="Número"
 				margin="normal"
+				required
 				type="number"
 				variant="outlined"
 			></TextField>
@@ -30,6 +38,7 @@ const DadosEntrega = () => {
 				id="cidade"
 				label="Cidade"
 				margin="normal"
+				required
 				type="text"
 				variant="outlined"
 			></TextField>
@@ -37,6 +46,7 @@ const DadosEntrega = () => {
 				id="estado"
 				label="Estado"
 				margin="normal"
+				required
 				type="text"
 				variant="outlined"
 			></TextField>
