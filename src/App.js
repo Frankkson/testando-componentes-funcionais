@@ -7,12 +7,14 @@ function App() {
 	return (
 		<Container
 			component="article"
-			maxWidth="sm">
+			maxWidth="sm"
+		>
 			<Typography
 				align="center"
 				variant="h3"
-				component={"h1"}>
-				This is a Typography inside a Container
+				component={"h1"}
+			>
+				Formulário de Cadastro
 			</Typography>
 
 			<FormularioCadastro
