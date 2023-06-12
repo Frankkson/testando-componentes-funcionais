@@ -14,8 +14,7 @@ const DadosPessoais = ({ aoEnviar, validateCPF }) => {
 			onSubmit={(e) => {
 				e.preventDefault();
 				aoEnviar({ nome, sobrenome, CPF, promocoes, termosDeUso });
-			}}
-		>
+			}}>
 			<TextField
 				fullWidth
 				id="nome"
@@ -89,9 +88,8 @@ const DadosPessoais = ({ aoEnviar, validateCPF }) => {
 			<Button
 				type="submit"
 				variant="contained"
-				color="primary"
-			>
-				Cadastrar
+				color="primary">
+				Próximo
 			</Button>
 		</form>
 	);

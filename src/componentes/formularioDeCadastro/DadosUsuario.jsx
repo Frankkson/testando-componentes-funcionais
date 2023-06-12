@@ -10,8 +10,7 @@ const DadosUsuario = ({ aoEnviar }) => {
 			onSubmit={(e) => {
 				e.preventDefault();
 				aoEnviar({ email, senha });
-			}}
-		>
+			}}>
 			<TextField
 				value={email}
 				onChange={(e) => {
@@ -23,8 +22,7 @@ const DadosUsuario = ({ aoEnviar }) => {
 				margin="normal"
 				required
 				type="email"
-				variant="outlined"
-			></TextField>
+				variant="outlined"></TextField>
 			<TextField
 				value={senha}
 				onChange={(e) => {
@@ -36,14 +34,12 @@ const DadosUsuario = ({ aoEnviar }) => {
 				margin="normal"
 				required
 				type="password"
-				variant="outlined"
-			></TextField>
+				variant="outlined"></TextField>
 			<Button
 				color="primary"
 				type="submit"
-				variant="contained"
-			>
-				Cadastrar
+				variant="contained">
+				Próximo
 			</Button>
 		</form>
 	);
