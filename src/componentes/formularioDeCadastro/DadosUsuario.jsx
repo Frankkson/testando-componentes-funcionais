@@ -1,15 +1,22 @@
 import { TextField, Button } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 
 const DadosUsuario = ({ aoEnviar }) => {
+	const [email, setEmail] = useState("");
+	const [senha, setSenha] = useState("");
+
 	return (
 		<form
 			onSubmit={(e) => {
 				e.preventDefault();
-				aoEnviar();
+				aoEnviar({ email, senha });
 			}}
 		>
 			<TextField
+				value={email}
+				onChange={(e) => {
+					setEmail(e.target.value);
+				}}
 				fullWidth
 				id="email"
 				label="email"
@@ -19,6 +26,10 @@ const DadosUsuario = ({ aoEnviar }) => {
 				variant="outlined"
 			></TextField>
 			<TextField
+				value={senha}
+				onChange={(e) => {
+					setSenha(e.target.value);
+				}}
 				fullWidth
 				id="senha"
 				label="senha"

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Button, TextField, Switch, FormControlLabel } from "@mui/material";
 
-const DadosPessoais = ({ onSubmit: aoEnviar, validateCPF }) => {
+const DadosPessoais = ({ aoEnviar, validateCPF }) => {
 	const [nome, setNome] = useState("");
 	const [sobrenome, setSobrenome] = useState("");
 	const [CPF, setCPF] = useState("");
@@ -11,9 +11,9 @@ const DadosPessoais = ({ onSubmit: aoEnviar, validateCPF }) => {
 
 	return (
 		<form
-			onSubmit={(event) => {
-				event.preventDefault();
-				aoEnviar();
+			onSubmit={(e) => {
+				e.preventDefault();
+				aoEnviar({ nome, sobrenome, CPF, promocoes, termosDeUso });
 			}}
 		>
 			<TextField
@@ -21,8 +21,8 @@ const DadosPessoais = ({ onSubmit: aoEnviar, validateCPF }) => {
 				id="nome"
 				label="Nome"
 				margin="normal"
-				onChange={(event) => {
-					setNome(event.target.value);
+				onChange={(e) => {
+					setNome(e.target.value);
 				}}
 				required
 				value={nome}
@@ -33,8 +33,8 @@ const DadosPessoais = ({ onSubmit: aoEnviar, validateCPF }) => {
 				id="sobrenome"
 				label="Sobrenome"
 				margin="normal"
-				onChange={(event) => {
-					setSobrenome(event.target.value);
+				onChange={(e) => {
+					setSobrenome(e.target.value);
 				}}
 				required
 				value={sobrenome}
@@ -47,12 +47,12 @@ const DadosPessoais = ({ onSubmit: aoEnviar, validateCPF }) => {
 				id="CPF"
 				label="CPF"
 				margin="normal"
-				onBlur={(event) => {
-					const isValid = validateCPF(event.target.value);
+				onBlur={(e) => {
+					const isValid = validateCPF(e.target.value);
 					setError({ CPF: isValid });
 				}}
-				onChange={(event) => {
-					setCPF(event.target.value);
+				onChange={(e) => {
+					setCPF(e.target.value);
 				}}
 				required
 				value={CPF}
@@ -63,8 +63,8 @@ const DadosPessoais = ({ onSubmit: aoEnviar, validateCPF }) => {
 				control={
 					<Switch
 						color="primary"
-						onChange={(event) => {
-							setPromocoes(event.target.checked);
+						onChange={(e) => {
+							setPromocoes(e.target.checked);
 						}}
 						checked={promocoes}
 						name="Promocoes"
@@ -78,8 +78,8 @@ const DadosPessoais = ({ onSubmit: aoEnviar, validateCPF }) => {
 					<Switch
 						color="primary"
 						name="Termos de uso"
-						onChange={(event) => {
-							setTermosDeUso(event.target.checked);
+						onChange={(e) => {
+							setTermosDeUso(e.target.checked);
 						}}
 						checked={termosDeUso}
 					/>
